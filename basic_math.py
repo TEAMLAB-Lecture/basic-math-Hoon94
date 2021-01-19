@@ -7,7 +7,7 @@
 """
 
 
-def get_greatest(number_list):
+def get_greatest(number_list : list) -> int:
     """
     주어진 리스트에서 가장 큰 숫자를 반환함
 
@@ -24,11 +24,15 @@ def get_greatest(number_list):
             >>> bm.get_greatest(number_list)
             99
     """
+    
     greatest_number = None
+
+    greatest_number = max(number_list)
+
     return greatest_number
 
 
-def get_smallest(number_list):
+def get_smallest(number_list : list) -> int:
     """
     주어진 리스트에서 제일 작은 숫자를 반환함
 
@@ -45,11 +49,15 @@ def get_smallest(number_list):
             >>> bm.get_smallest(number_list)
             11
     """
+
     smallest_number = None
+
+    smallest_number = min(number_list)
+
     return smallest_number
 
 
-def get_mean(number_list):
+def get_mean(number_list : list) -> int:
     """
     주어진 리스트 숫자들의 평균을 구함.
 
@@ -66,11 +74,15 @@ def get_mean(number_list):
             >>> bm.get_mean(number_list)
             47
     """
+
     mean = None
+
+    mean = sum(number_list) / len(number_list)
+
     return mean
 
 
-def get_median(number_list):
+def get_median(number_list : list) -> int:
     """
     주어진 리스트 숫자들의 중간값을 구함.
 
@@ -90,5 +102,14 @@ def get_median(number_list):
             >>> bm.get_median(number_list2)
             35.5
     """
+
     median = None
+    sort_number_list = sorted(number_list)
+    index = len(sort_number_list) // 2
+
+    if len(sort_number_list) % 2 == 1: # odd
+        median = sort_number_list[index]
+    else : # even
+        median = sum(sort_number_list[index - 1 : index + 1]) / 2
+        
     return median
